@@ -1,4 +1,5 @@
 import React from "react"
+import {nanoid} from "nanoid"
 
 export default function Question(props) {
 
@@ -35,30 +36,33 @@ export default function Question(props) {
         return clas
     }
 
+    let ansButtons = [];
+    let finButtons = [];
+    for(let i = 0; i < 4; i++)
+    {
+        ansButtons.push(<button key={nanoid()} className={props.selected === props.answers[i] ? "answer-btn-selected" : "answer-btn"} onClick={() => props.select(props.id, props.answers[i])}>{decodeEntities(props.answers[i])}</button>)
+        finButtons.push(<button key={nanoid()} className={determine(i)}>{decodeEntities(props.answers[i])}</button>)
+    }
+
+
     return (
         <>
             {!props.checked ? 
                 <>
-                    <div>
+                    <div className="questionConainer">
                         <h1 className="questionText">{decodeEntities(props.question)}</h1>
                         <div className="answer--container">
-                            <button className={props.selected === props.answers[0] ? "answer-btn-selected" : "answer-btn"} onClick={() => props.select(props.id, props.answers[0])}>{decodeEntities(props.answers[0])}</button>
-                            <button className={props.selected === props.answers[1] ? "answer-btn-selected" : "answer-btn"} onClick={() => props.select(props.id, props.answers[1])}>{decodeEntities(props.answers[1])}</button>
-                            <button className={props.selected === props.answers[2] ? "answer-btn-selected" : "answer-btn"} onClick={() => props.select(props.id, props.answers[2])}>{decodeEntities(props.answers[2])}</button>
-                            <button className={props.selected === props.answers[3] ? "answer-btn-selected" : "answer-btn"} onClick={() => props.select(props.id, props.answers[3])}>{decodeEntities(props.answers[3])}</button>
+                            {ansButtons}
                         </div>
                     </div>
                     <hr />
                 </>
                 :
                 <>
-                    <div>
+                    <div className="questionConainer">
                         <h1 className="questionText">{decodeEntities(props.question)}</h1>
                         <div className="answer--container">
-                            <button className={determine(0)}>{decodeEntities(props.answers[0])}</button>
-                            <button className={determine(1)}>{decodeEntities(props.answers[1])}</button>
-                            <button className={determine(2)}>{decodeEntities(props.answers[2])}</button>
-                            <button className={determine(3)}>{decodeEntities(props.answers[3])}</button>
+                            {finButtons}
                         </div>
                     </div>
                     <hr />
