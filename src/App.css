@@ -125,7 +125,7 @@ hr {
   background: #4D5B9E;
   color: white;
   min-width: 28vh;
-  height: 7vh;
+  min-height: 7vh;
   cursor: pointer;
 
   font-size: 28px;
