@@ -243,6 +243,15 @@ select {
   margin-left: 1.5vw;
 }
 
+@media screen and (max-width: 1800px) {
+  .blob3 {
+    display: none;
+  }
+  .blob4 {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .diffFin {
     display: inline;
