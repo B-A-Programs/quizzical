@@ -124,7 +124,7 @@ hr {
   margin-top: 3vh;
   background: #4D5B9E;
   color: white;
-  width: 26vh;
+  min-width: 28vh;
   height: 7vh;
   cursor: pointer;
 
