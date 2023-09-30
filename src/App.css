@@ -1,10 +1,13 @@
 .App {
   background-color: #F5F7FB;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   font-family: 'Karla', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .start {
